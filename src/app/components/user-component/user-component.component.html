@@ -1,0 +1,12 @@
+
+<mat-card class='user-card'  *ngIf='user'>
+  <h4 >{{user.name}}</h4>
+  <mat-list role="list">
+    <mat-list-item role="listitem" class='user__info'>Phone: {{user.phone}}</mat-list-item>
+    <mat-list-item class='user__info'>Company: {{user.company.name}}</mat-list-item>
+    <mat-list-item class='user__info'>Username: {{user.username}}</mat-list-item>
+    <mat-list-item class='user__info'>Email: {{user.email}}</mat-list-item>
+    <mat-list-item class='user__info'>Website: {{user.website}}</mat-list-item>
+  </mat-list>
+  <button mat-button color='accent' (click)='goBack()'>Back</button>
+</mat-card>

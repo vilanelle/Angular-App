@@ -1,0 +1,37 @@
+<mat-sidenav-container>
+
+  <mat-toolbar class='toolbar' color='primary'>User List </mat-toolbar>
+
+  <nav mat-tab-nav-bar>
+      <a mat-tab-link [active]='true' routerLink='/'>User List</a>
+      <a mat-tab-link routerLink='/gallery'>Gallery</a>
+  </nav>
+
+
+  <button mat-button (click)='toggleUsers()' (click)='toggleHeaderStyle($event)'>Toggle user list <i class="material-icons">swap_vert</i></button>
+
+  <div class='user-list' *ngIf='showUsers'>
+    <mat-card *ngFor='let el of users'>
+      <div class='user'>
+        <h4 mat-card-title>{{el.name}}</h4>
+        <li class='user__info'>Phone: {{el.phone}}</li>
+        <li class='user__info'>Company: {{el.company.name}}</li>
+
+      </div>
+      <div *ngIf='el.isEditable'>
+        <form >
+          <label for='name'>User Name: </label>  <input type="text" [(ngModel)]='el.name' name='name' value="{{el.name}}"/>
+          <label for='phone'>Phone: </label>  <input type="text" [(ngModel)]='el.phone' name='phone' value="{{el.phone}}"/>
+          <label for='company'>Company: </label> <input type="text" [(ngModel)]='el.company.name' name='company' value="{{el.company.name}}"/>
+        </form>
+      </div>
+    <div *ngIf='!el.isEditable; else saveBtn'>
+      <button mat-button class='mat-accent' (click)='toggleUserEdit(el)'>Edit user</button>
+      <button mat-button class='mat-accent'><a routerLink='/details/{{el.id}}'>More user info</a></button>
+    </div>
+      <ng-template #saveBtn><button mat-button (click)='toggleUserEdit(el)'>Save</button></ng-template>
+    </mat-card>
+  </div>
+  <app-message></app-message>
+
+</mat-sidenav-container>

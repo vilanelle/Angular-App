@@ -1,0 +1,30 @@
+.toolbar__list-item, .user__info{
+  list-style: none;
+  padding: 0 2em 0 0;
+
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.mid-header{
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: rgba(176,135,135,1);
+  box-shadow: 1px 1px 1px gray;
+  width: 10rem;
+  cursor: pointer;
+}
+.mid-header:hover{
+  background-color: rgba(176,135,135,0.6);
+}
+
+.mid-header--active{
+  background-color: silver;
+}
+.user-list__btn-link,
+.user-list__btn-link:hover,
+.user-list__btn-link:active{
+  text-decoration: none;
+  color: black;
+}

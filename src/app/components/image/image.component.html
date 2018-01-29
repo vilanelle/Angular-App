@@ -1,0 +1,12 @@
+<mat-sidenav-container class='main-container'>
+<mat-card class='image-card' *ngIf='image' >
+  <div>
+    <mat-card-title>Image #{{image.id}}</mat-card-title>
+    <img src={{image.thumbnailUrl}} />
+    <mat-card-content>{{image.title}}</mat-card-content>
+  </div>
+  <div>
+    <button mat-button (click)='goBack()'>Back</button>
+  </div>
+</mat-card>
+<mat-sidenav-container>

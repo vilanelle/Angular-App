@@ -1,0 +1,20 @@
+<mat-sidenav-container>
+
+<mat-toolbar color='primary'>Gallery</mat-toolbar>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link routerLinkActive routerLink='/'>UserList</a>
+    <a mat-tab-link [active]='true' routerLink='/gallery'>Gallery</a>
+  </nav>
+<!-- <mat-tab-group class='toolbar' color='primary'>
+  <mat-tab label='User List'><a routerLink='/'></a></mat-tab>
+  <mat-tab ><a routerLink='/gallery'>Gallery</a></mat-tab>
+</mat-tab-group> -->
+
+<div *ngIf='images'>
+<mat-card *ngFor='let image of images' routerLink='/image/{{image.id}}'>
+  <img src='{{image.thumbnailUrl}}'/>
+  <mat-card-content>{{image.title}}</mat-card-content>
+</mat-card>
+</div>
+
+</mat-sidenav-container>
